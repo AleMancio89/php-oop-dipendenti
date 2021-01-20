@@ -10,6 +10,10 @@ class Persona {
         $this->nome = $nome;
         $this->cognome = $cognome;
         $this->codice_fiscale = $codice_fiscale;
+
+        if(!is_string($this->nome) || !is_string($this->cognome)){
+            throw new Exception('Inserire correttamente nome e cognome');
+        }
     }    
 
     public function to_string(){

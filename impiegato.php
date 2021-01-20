@@ -7,6 +7,7 @@ class Impiegato extends Persona {
     protected $compenso;
 
 
+
     public function __construct($dati_impiegato) {
         parent::__construct(
             $dati_impiegato['nome'],
@@ -15,6 +16,10 @@ class Impiegato extends Persona {
         );
         $this->codice_impiegato = $dati_impiegato['codice_impiegato'];
         $this->compenso = $dati_impiegato['compenso'];
+
+        if(!is_numeric($this->codice_impiegato)){
+            throw new Exception('Il codice impiegato deve essere un numero');
+        }
 
     }
 
